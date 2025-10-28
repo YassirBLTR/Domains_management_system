@@ -15,8 +15,12 @@ export const authAPI = {
     return response.data;
   },
 
-  getCurrentUser: async () => {
-    const response = await axios.get('/api/v1/users/me');
+  getCurrentUser: async (token) => {
+    const response = await axios.get('/api/v1/users/me', {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
     return response.data;
   },
 

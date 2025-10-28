@@ -24,7 +24,7 @@ export const AuthProvider = ({ children }) => {
       localStorage.setItem('token', data.access_token);
       
       // Get user info
-      const userData = await authAPI.getCurrentUser();
+      const userData = await authAPI.getCurrentUser(data.access_token);
       localStorage.setItem('user', JSON.stringify(userData));
       setUser(userData);
       
