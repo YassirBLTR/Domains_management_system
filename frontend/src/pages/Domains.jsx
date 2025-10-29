@@ -13,6 +13,7 @@ import { providersAPI } from '../api/providers';
 import { teamsAPI } from '../api/teams';
 import { mailersAPI } from '../api/mailers';
 import { useAuth } from '../contexts/AuthContext';
+import { getProviderBadgeColor } from '../utils/providerColors';
 
 const Domains = () => {
   const { isAdmin } = useAuth();
@@ -154,14 +155,6 @@ const Domains = () => {
     }
   };
 
-  const getProviderBadgeColor = (providerName) => {
-    const colors = {
-      godaddy: 'bg-green-100 text-green-800',
-      namecheap: 'bg-orange-100 text-orange-800',
-      dynadot: 'bg-blue-100 text-blue-800',
-    };
-    return colors[providerName?.toLowerCase()] || 'bg-gray-100 text-gray-800';
-  };
 
   // Pagination calculations
   const indexOfLastItem = currentPage * itemsPerPage;

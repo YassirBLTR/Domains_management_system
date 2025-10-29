@@ -6,6 +6,7 @@ import { Badge } from '../components/ui/badge';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
 import { ExternalLink, Plus } from 'lucide-react';
 import { providersAPI } from '../api/providers';
+import { getProviderInfo } from '../utils/providerColors';
 import { useAuth } from '../contexts/AuthContext';
 
 const Providers = () => {
@@ -29,38 +30,6 @@ const Providers = () => {
     }
   };
 
-  const getProviderInfo = (providerName) => {
-    const info = {
-      godaddy: {
-        name: 'GoDaddy',
-        color: 'bg-green-100 text-green-800 border-green-200',
-        description: 'World\'s largest domain registrar',
-        website: 'https://www.godaddy.com',
-        apiDocs: 'https://developer.godaddy.com',
-      },
-      namecheap: {
-        name: 'Namecheap',
-        color: 'bg-orange-100 text-orange-800 border-orange-200',
-        description: 'Affordable domains and hosting',
-        website: 'https://www.namecheap.com',
-        apiDocs: 'https://www.namecheap.com/support/api/',
-      },
-      dynadot: {
-        name: 'Dynadot',
-        color: 'bg-blue-100 text-blue-800 border-blue-200',
-        description: 'Domain registration and management',
-        website: 'https://www.dynadot.com',
-        apiDocs: 'https://www.dynadot.com/domain/api.html',
-      },
-    };
-    return info[providerName?.toLowerCase()] || {
-      name: providerName,
-      color: 'bg-gray-100 text-gray-800 border-gray-200',
-      description: 'Domain provider',
-      website: '#',
-      apiDocs: '#',
-    };
-  };
 
   return (
     <Layout>

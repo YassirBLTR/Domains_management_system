@@ -12,6 +12,7 @@ import { accountsAPI } from '../api/accounts';
 import { providersAPI } from '../api/providers';
 import { useAuth } from '../contexts/AuthContext';
 import { useToast } from '../hooks/use-toast';
+import { getProviderBadgeColor } from '../utils/providerColors';
 
 const Accounts = () => {
   const { isAdmin } = useAuth();
@@ -177,14 +178,6 @@ const Accounts = () => {
     return provider ? provider.provider_name : 'Unknown';
   };
 
-  const getProviderBadgeColor = (providerName) => {
-    const colors = {
-      godaddy: 'bg-green-100 text-green-800',
-      namecheap: 'bg-orange-100 text-orange-800',
-      dynadot: 'bg-blue-100 text-blue-800',
-    };
-    return colors[providerName?.toLowerCase()] || 'bg-gray-100 text-gray-800';
-  };
 
   return (
     <Layout>
